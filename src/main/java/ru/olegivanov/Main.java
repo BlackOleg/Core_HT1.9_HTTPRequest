@@ -1,10 +1,8 @@
 package ru.olegivanov;
 
-import com.fasterxml.jackson.core.json.UTF8DataInputJsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpHeaders;
-import org.apache.http.HttpVersion;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -28,7 +26,7 @@ public class Main {
                 .build();
         HttpGet request = new HttpGet(url);
         request.setHeader(HttpHeaders.ACCEPT, ContentType.APPLICATION_JSON.getMimeType());
-        request.setHeader(HttpHeaders.CONTENT_ENCODING, "UTF-8");
+        request.setHeader(HttpHeaders.ACCEPT_CHARSET, "utf-8");
         CloseableHttpResponse response = httpClient.execute(request);
         //Arrays.stream(response.getAllHeaders()).forEach(System.out::println);
         List<CatsPost> catsPost = mapper.readValue(
@@ -39,6 +37,6 @@ public class Main {
         catsPost.stream()
                 .filter(value -> value.getUpvotes() > 0)
                 .forEach(System.out::println);
-        System.out.println("Все готово!!");
+        System.out.println("Все готово!!!");
     }
 }
