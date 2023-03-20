@@ -7,7 +7,12 @@ public class CatsPost {
   private final String text;
   private final String type;
   private final String user;
-  private final int upvotes;
+
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    private final int upvotes;
 
     public CatsPost(
             @JsonProperty("id") String id,

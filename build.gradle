@@ -6,9 +6,8 @@ group 'ru.olegivanov'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+     mavenCentral()
 }
-
 dependencies {
     implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.14'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
